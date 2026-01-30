@@ -1,5 +1,5 @@
 
-# INSPECT-AI: Explainable Edge AI for Industrial Safety
+# AI-Powered-Industrial-Inspection-Safety-Monitoring-System
 
 INSPECT-AI is an AI-powered industrial inspection system that performs real-time defect detection, reasoning, and safety compliance mapping using computer vision and explainable AI techniques.
 
