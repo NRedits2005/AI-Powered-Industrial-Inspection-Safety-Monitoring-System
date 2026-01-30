@@ -1,0 +1,8 @@
+flask
+flask-cors
+pillow
+numpy
+# Optional (for future real-model integration):
+# opencv-python-headless
+# torch
+# torchvision

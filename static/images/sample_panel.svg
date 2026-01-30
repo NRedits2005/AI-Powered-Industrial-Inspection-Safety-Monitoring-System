@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="100%" height="100%" fill="#0b1226"/>
+  <g transform="translate(80,60)">
+    <rect width="1040" height="680" rx="18" fill="#0f1a2a" stroke="#162433" stroke-width="2"/>
+
+    <!-- Panel elements -->
+    <rect x="40" y="40" width="360" height="220" rx="8" fill="#0b2433" stroke="#153442"/>
+    <g fill="#78c0d6" opacity="0.9">
+      <circle cx="120" cy="150" r="8"/>
+      <rect x="80" y="80" width="240" height="18" rx="6"/>
+    </g>
+
+    <rect x="460" y="40" width="520" height="220" rx="8" fill="#061826" stroke="#12333f"/>
+    <g fill="#9ad8e6">
+      <rect x="520" y="80" width="360" height="18" rx="6"/>
+      <rect x="520" y="120" width="220" height="12" rx="6"/>
+    </g>
+
+    <!-- pipes / bolts (context for defects) -->
+    <g transform="translate(60,320)">
+      <rect x="0" y="0" width="1040" height="40" rx="6" fill="#0f2633"/>
+      <g fill="#203a43">
+        <rect x="40" y="-14" width="36" height="68" rx="6"/>
+        <rect x="140" y="-14" width="36" height="68" rx="6"/>
+        <rect x="360" y="-14" width="36" height="68" rx="6"/>
+      </g>
+    </g>
+
+    <!-- simulated crack / corrosion marks for demo visuals -->
+    <g fill="none" stroke="#ffb86b" stroke-width="6" stroke-linecap="round" opacity="0.95">
+      <path d="M 220 420 q 40 18 80 4 q 24 -8 44 6"/>
+    </g>
+    <g fill="#ffb86b" opacity="0.85">
+      <ellipse cx="620" cy="180" rx="28" ry="18"/>
+    </g>
+    <g fill="#ff6b6b" opacity="0.9">
+      <ellipse cx="900" cy="380" rx="18" ry="12"/>
+    </g>
+
+    <text x="64" y="640" fill="#7fb8c9" font-size="18">Demo panel — use this image for a reproducible mock detection</text>
+  </g>
+</svg>
