@@ -1,66 +1,151 @@
-# Industrial Inspection — Demo (AI-based)
 
-✅ A complete, modular demo of an AI Industrial Inspection system (frontend + Flask backend).
+# INSPECT-AI: Explainable Edge AI for Industrial Safety
 
-Contents
-- `app.py` — Flask REST API (endpoints: `/health`, `/analyze`)
-- `inspection/vision.py` — Detector abstraction (mock implementation; drop-in for YOLO/OpenCV)
-- `inspection/reasoning.py` — Severity classification, SOP/ISO mapping, recommendations
-- `inspection/utils.py` — image helpers & annotation
-- `static/` — frontend dashboard (HTML/CSS/JS) + demo image
+INSPECT-AI is an AI-powered industrial inspection system that performs real-time defect detection, reasoning, and safety compliance mapping using computer vision and explainable AI techniques.
 
-Highlights
-- Mock detector yields deterministic defects for demo and real-time UI testing ✅
-- Clear extension points to plug a real model (YOLO/TorchScript/OpenCV) 🔧
-- Returns annotated image (base64) + structured JSON for integrations 💡
+This project demonstrates how Edge AI and Vision-Language Reasoning can be combined to improve industrial safety, reduce manual inspections, and enable data-driven maintenance decisions.
 
-## Quick start (Windows PowerShell)
+---
 
-1. Create & activate virtualenv
+## 🚀 Features
 
-   python -m venv .venv
-   .\.venv\Scripts\Activate.ps1
+- Real-time industrial defect detection (Cracks, Corrosion, Leaks)
+- Edge-based processing with low latency
+- Explainable AI reasoning with severity classification
+- SOP and ISO safety standard mapping
+- Actionable maintenance recommendations
+- Interactive web dashboard
+- Automated inspection reporting
+- Scalable and modular architecture
 
-2. Install
+---
 
-   pip install -r requirements.txt
+## 🏗️ Project Architecture
 
-3. Run the dev server
+```
+industrial-inspection-ai/
+│
+├── backend/
+│   ├── app.py            # Flask backend API
+│   ├── vision.py         # Defect detection logic
+│   ├── reasoning.py     # Severity + SOP reasoning
+│   ├── utils.py         # Helper functions
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── index.html        # Dashboard UI
+│   ├── style.css         # Styling
+│   └── script.js         # Frontend logic
+│
+└── README.md
+```
 
-   # PowerShell
-   $env:FLASK_APP = 'app.py'
-   $env:FLASK_ENV = 'development'
-   flask run --host=0.0.0.0 --port=5000
+---
 
-4. Open the demo
+## 🧠 How It Works
 
-   - Open `http://127.0.0.1:5000/static/index.html` in your browser
-   - Click **Run inspection** or **Use sample** to see mock detections
+1. Cameras capture live industrial asset footage.
+2. Edge AI detects visual anomalies in real time.
+3. Reasoning engine classifies defect severity.
+4. Detected defects are mapped to SOP/ISO standards.
+5. Actionable recommendations are generated.
+6. Results are displayed on the dashboard and logged for audits.
 
-## API
+---
 
-- GET  /health -> {status, version}
-- POST /analyze -> multipart form with field `image` OR JSON `{ "use_sample": true }`
-  - Response: `{ detections, analysis, annotated_image }`
+## ⚙️ Tech Stack
 
-Example curl (sample):
+### Backend
+- Python
+- Flask
+- OpenCV
+- NumPy
 
-  curl -sS -X POST -H "Content-Type: application/json" -d '{"use_sample":true}' http://127.0.0.1:5000/analyze | jq .
+### Frontend
+- HTML
+- CSS
+- JavaScript
 
-Example curl (upload):
+### AI & Logic
+- Computer Vision
+- Explainable AI
+- Rule-based reasoning (extendable to LLMs)
 
-  curl -F "image=@your.jpg" http://127.0.0.1:5000/analyze | jq .
+---
 
-## Where to extend (recommended)
+## ▶️ How to Run the Project
 
-- Replace `Detector._mock_detect` with a real model in `inspection/vision.py`.
-- For YOLO: implement `load_model()` to load weights and `detect()` to translate outputs to the detection schema.
-- Add a job queue (Celery/RQ) and persistent storage if running high-throughput inspection pipelines.
-- Optionally add a `/report` endpoint to persist analysis and generate PDFs.
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/inspect-ai.git
+cd inspect-ai
+```
 
-## Notes
+### 2. Run Backend
+```bash
+cd backend
+pip install -r requirements.txt
+python app.py
+```
 
-- The SOP/ISO mappings are illustrative. Replace `inspection/reasoning.py::SOP_DB` with your organization's canonical SOPs.
-- The demo emphasizes clarity and modularity so it can be used as the basis for production integration.
+### 3. Run Frontend
+- Open `frontend/index.html` in your browser
+- Click **Run Inspection** to see live AI output
 
-Enjoy — extend as needed. If you want, I can: add a Dockerfile, integrate a sample YOLO runner, or add unit tests next.
+---
+
+## 📊 Example Output
+
+```json
+{
+  "defect": "Crack",
+  "confidence": 0.93,
+  "location": "Pipeline Joint A",
+  "severity": "High",
+  "sop_reference": "ISO 15649 – Pressure Piping",
+  "recommendation": "Schedule ultrasonic testing within 48 hours"
+}
+```
+
+---
+
+## 🔐 Safety & Ethics
+
+- No human surveillance or biometric data
+- Asset-focused inspection only
+- Human-in-the-loop decision making
+- Explainable and auditable outputs
+
+---
+
+## 📈 Scalability
+
+- Supports multiple cameras and assets
+- Edge-first architecture minimizes cloud dependency
+- Easy integration with existing industrial systems
+- Extendable to cloud and multi-agent setups
+
+---
+
+## 🌟 Future Enhancements
+
+- YOLOv8 real-time defect detection
+- Streamlit dashboard version
+- Predictive maintenance analytics
+- Multi-agent AI reasoning
+- Cloud deployment (AWS / Azure)
+
+---
+
+## 🏆 Ideal For
+
+- Hackathons
+- Industrial AI POCs
+- Smart manufacturing demos
+- Safety compliance solutions
+
+---
+
+## 📄 License
+
+This project is for educational and demonstration purposes.
